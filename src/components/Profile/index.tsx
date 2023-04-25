@@ -24,22 +24,22 @@ export const ProfileComponent:React.FC<Props> = ({profile,loading,err}) => {
     if(loading) return <>loading</>
 
     return <Container>
-        <Avatar src={profile?.avatarUrl}/>
+        <Avatar src={user?.avatarUrl}/>
         <InformationContainer>
-            <NameContainer><Name>{profile?.name}</Name> {profile?.id === user.id && <LogoutOutlined />} </NameContainer>
-            <JoinedDate>{profile?.createdAt}</JoinedDate>
+            <NameContainer><Name>{user?.name}</Name> {user?.id === user.id && <LogoutOutlined />} </NameContainer>
+            <JoinedDate>{user?.createdAt}</JoinedDate>
             <Stats>
                 <StatContainer>
                     <StatName>CPM:</StatName>
-                    <StatValue>{profile?.bestRecord?.cpm}</StatValue>
+                    <StatValue>{user?.bestRecord?.cpm}</StatValue>
                 </StatContainer>
                 <StatContainer>
                     <StatName>Accuracy:</StatName>
-                    <StatValue>{profile?.bestRecord?.accuracy}</StatValue>
+                    <StatValue>{user?.bestRecord?.accuracy}</StatValue>
                 </StatContainer>
                 <StatContainer>
                     <StatName>Time:</StatName>
-                    <StatValue>{profile?.bestRecord?.time}</StatValue>
+                    <StatValue>{user?.bestRecord?.time}</StatValue>
                 </StatContainer>
             </Stats>
         </InformationContainer>

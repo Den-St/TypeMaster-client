@@ -11,7 +11,11 @@ export const Container = styled.section`
 
 export const MainContainer = styled.div`
     display: flex;
-    width: 700px;
+    width: 800px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    gap:40px;
 `;
 
 export const TextContainer = styled.div`
@@ -52,5 +56,12 @@ export const Stat = styled.p`
 `;
 
 export const RestartButton = styled.button`
-
+    width: 70%;
+    height: 35px;
+    font-size: 25px;
+    color:white;
+    background-color: #2fa5f8;
+    border-radius: 5px;
+    outline: none;
+    border: none;
 `;
