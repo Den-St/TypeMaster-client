@@ -7,4 +7,5 @@ export type UserT = {
     avatarUrl?:string;
     id:number;
     createdAt:string;
+    
 }
