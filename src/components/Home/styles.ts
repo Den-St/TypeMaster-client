@@ -11,7 +11,7 @@ export const Container = styled.section`
 
 export const MainContainer = styled.div`
     display: flex;
-    width: 800px;
+    width: 80%;
     border: 1px solid black;
     padding: 10px;
     border-radius: 10px;
@@ -48,11 +48,20 @@ export const StatsContainer = styled.div`
     flex-direction: column;
     gap: 20px;
 `;
+export const StatItemContainer = styled.div`
+    display: flex;
+    gap: 15px;
+    align-items: center;
+`;
 
 export const Stat = styled.p`
     font-size: 30px;
     margin: 0;
-    width: 250px;
+`;
+export const BestStat = styled.p`
+    font-size: 30px;
+    margin: 0;
+    color:green;
 `;
 
 export const RestartButton = styled.button`

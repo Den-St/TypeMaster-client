@@ -39,5 +39,5 @@ export const useFinishTyping = (onFinish:(isBest:boolean) => void) => {
 
     useEffect(() => {fetch()},[]);
 
-    return {finish};
+    return {finish,bestStats:userStats?.bestRecord};
 }

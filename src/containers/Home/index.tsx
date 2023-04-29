@@ -26,7 +26,7 @@ export const Home = () => {
         });
       };
 
-    const {finish} = useFinishTyping(openFinishNotification);
+    const {finish,bestStats} = useFinishTyping(openFinishNotification);
 
-  return <HomeComponent notificationComponent={contextHolder} onFinish={finish}/>
+  return <HomeComponent bestStats={bestStats} notificationComponent={contextHolder} onFinish={finish}/>
 } 

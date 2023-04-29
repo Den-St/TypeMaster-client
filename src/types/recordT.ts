@@ -3,4 +3,5 @@ export type RecordT = {
     time:number;
     accuracy:number;
     rate:number;
+    wrongChars:number;
 }

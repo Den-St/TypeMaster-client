@@ -1,12 +1,14 @@
 import { useTypingFunctionallity } from "../../hooks/typingFunctionallity";
-import { Container, Input, MainContainer, NotTypedText, RestartButton, Stat, StatsContainer, TextContainer, TypedText } from "./styles";
+import { RecordT } from "../../types/recordT";
+import { BestStat, Container, Input, MainContainer, NotTypedText, RestartButton, Stat, StatItemContainer, StatsContainer, TextContainer, TypedText } from "./styles";
 
 type Props = {
     onFinish:(record:{cpm:number,wrongChars:number,time:number,accuracy:number}) => void;
-    notificationComponent:React.ReactElement<any, string | React.JSXElementConstructor<any>>
+    notificationComponent:React.ReactElement<any, string | React.JSXElementConstructor<any>>;
+    bestStats?:RecordT
 }
 
-export const HomeComponent:React.FC<Props> = ({onFinish,notificationComponent}) => {
+export const HomeComponent:React.FC<Props> = ({onFinish,notificationComponent,bestStats}) => {
     const {typedText,inputValue,onTypeLetter,notTypedText,
            cpm,wrongChars,timer,accuracy,onRestart} = useTypingFunctionallity(onFinish);
 
@@ -19,10 +21,10 @@ export const HomeComponent:React.FC<Props> = ({onFinish,notificationComponent}) 
             <NotTypedText dangerouslySetInnerHTML={{__html:notTypedText}}/>
         </TextContainer>
         <StatsContainer>
-            <Stat>CPM: {cpm}</Stat>
-            <Stat>Wrong chars: {wrongChars}</Stat>
-            <Stat>Time: {timer}</Stat>
-            <Stat>Accuracy: {accuracy}%</Stat>
+            <StatItemContainer><Stat>CPM: {cpm}</Stat><BestStat>{bestStats?.cpm || 300}</BestStat></StatItemContainer>
+            <StatItemContainer><Stat>Wrong chars: {wrongChars}</Stat><BestStat>{bestStats?.wrongChars || 10}</BestStat></StatItemContainer>
+            <StatItemContainer><Stat>Time: {timer}</Stat><BestStat>{bestStats?.time || 20}</BestStat></StatItemContainer>
+            <StatItemContainer><Stat>Accuracy: {accuracy}%</Stat><BestStat>{bestStats?.accuracy || `80%`}</BestStat></StatItemContainer>
             <RestartButton onClick={onRestart}>Restart</RestartButton>
         </StatsContainer>
     </MainContainer>
