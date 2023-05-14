@@ -1,7 +1,9 @@
 import { useUserStore } from "../../store/userStore"
 import { UserT } from "../../types/userT"
-import { Avatar, Container, InformationContainer, JoinedDate, Name, NameContainer, StatContainer, StatName, Stats, StatValue } from "./styles"
+import { Avatar, Container, InformationContainer, JoinedDate, Logout, Name, NameContainer, StatContainer, StatName, Stats, StatValue } from "./styles"
 import {LogoutOutlined} from "@ant-design/icons";
+import Cookies from "js-cookie";
+import {useNavigate} from "react-router-dom";
 type Props = {
     profile?:UserT,
     loading:boolean,
@@ -10,6 +12,9 @@ type Props = {
 
 export const ProfileComponent:React.FC<Props> = ({profile,loading,err}) => {
     // const user = useUserStore(state => state.state);
+    const navigate = useNavigate();
+    const {logout} = useUserStore();
+    
     const user = {
         name:'agsdgasdgs',
         id:2,
@@ -21,12 +26,17 @@ export const ProfileComponent:React.FC<Props> = ({profile,loading,err}) => {
             accuracy:65
         }
     }
-    if(loading) return <>loading</>
+    const onLogout = () => {
+        Cookies.remove('token');
+        logout();
+        navigate('/');
+    }
+
 
     return <Container>
         <Avatar src={user?.avatarUrl}/>
         <InformationContainer>
-            <NameContainer><Name>{user?.name}</Name> {user?.id === user.id && <LogoutOutlined />} </NameContainer>
+            <NameContainer><Name>{user?.name}</Name> {user?.id === user.id && <Logout onClick={onLogout}><LogoutOutlined /></Logout>} </NameContainer>
             <JoinedDate>{user?.createdAt}</JoinedDate>
             <Stats>
                 <StatContainer>

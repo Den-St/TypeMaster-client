@@ -4,7 +4,8 @@ type onFinishType = (record:{cpm:number,wrongChars:number,time:number,accuracy:n
 type notifcationComponentType = React.ReactElement<any, string | React.JSXElementConstructor<any>>;
 
 export const useTypingFunctionallity = (onFinish:onFinishType) => {
-  const [initialText,setInitialText] = useState('pa');
+  //const [initialText,setInitialText] = useState('pasnfd kjansfdkh askhfn kahsdkfhjbasdkhfb ahsdb fhkasb dfhkbas dkhfb ashdbf jhbdsad hfbaskhbd fhkasb dfhbashbf haksbd fhbashkd bfhsbdhkaf bakhsbd fhkasb dfhasbdhkaf baskhdbf habsfh baskhbd fkahsbdf hds');
+  const [initialText,setInitialText] = useState('pasnfd');
   const [typedText,setTypedText] = useState('');
   const [inputValue,setInputValue] = useState(initialText[0]);
   const [notTypedText,setNotTypedText] = useState(initialText.slice(1,initialText.length));

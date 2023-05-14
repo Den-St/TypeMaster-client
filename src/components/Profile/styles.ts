@@ -23,7 +23,19 @@ export const NameContainer = styled.div`
 `;
 
 export const Logout = styled.button`
-    font-size: 30px;
+    font-size: 35px;
+    border: none;
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    &:hover{
+        background-color: #dfdfdf;
+    }
+    background-color: transparent;
 `;
 
 export const Name = styled.h1`

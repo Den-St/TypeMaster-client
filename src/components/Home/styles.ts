@@ -11,7 +11,6 @@ export const Container = styled.section`
 
 export const MainContainer = styled.div`
     display: flex;
-    width: 80%;
     border: 1px solid black;
     padding: 10px;
     border-radius: 10px;
@@ -19,6 +18,8 @@ export const MainContainer = styled.div`
 `;
 
 export const TextContainer = styled.div`
+    width: 400px;
+    height: 270px;
 `;
 
 export const TypedText = styled.span`
@@ -47,6 +48,7 @@ export const StatsContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 330px;
 `;
 export const StatItemContainer = styled.div`
     display: flex;
