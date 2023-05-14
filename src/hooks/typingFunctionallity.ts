@@ -1,11 +1,12 @@
+import axios from "axios";
 import { useEffect, useRef, useState } from "react";
+import { generateRandomText } from "../helpers/generateRandomText";
 
 type onFinishType = (record:{cpm:number,wrongChars:number,time:number,accuracy:number}) => void;
 type notifcationComponentType = React.ReactElement<any, string | React.JSXElementConstructor<any>>;
 
 export const useTypingFunctionallity = (onFinish:onFinishType) => {
-  //const [initialText,setInitialText] = useState('pasnfd kjansfdkh askhfn kahsdkfhjbasdkhfb ahsdb fhkasb dfhkbas dkhfb ashdbf jhbdsad hfbaskhbd fhkasb dfhbashbf haksbd fhbashkd bfhsbdhkaf bakhsbd fhkasb dfhasbdhkaf baskhdbf habsfh baskhbd fkahsbdf hds');
-  const [initialText,setInitialText] = useState('pasnfd');
+  const [initialText,setInitialText] = useState(generateRandomText());
   const [typedText,setTypedText] = useState('');
   const [inputValue,setInputValue] = useState(initialText[0]);
   const [notTypedText,setNotTypedText] = useState(initialText.slice(1,initialText.length));
@@ -16,15 +17,18 @@ export const useTypingFunctionallity = (onFinish:onFinishType) => {
   const intervalRef = useRef(0);
   const [finished,setFinish] = useState(false);
 
-  const onRestart = () => {
+  const onRestart = async () => {
     clearInterval(intervalRef.current);
     setTypedText('');
-    setInputValue(initialText[0]);
-    setNotTypedText(initialText.slice(1,initialText.length));
     setTimer(0);
     setCpm(0);
     setWrongChars(0);
     setAccuracy(100);
+    setFinish(false);
+    const initText = generateRandomText();
+    setInitialText(initText);
+    setInputValue(initText[0]);
+    setNotTypedText(initText.slice(1,initText.length));
   }
 
   const onTypeLetter = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -48,7 +52,6 @@ export const useTypingFunctionallity = (onFinish:onFinishType) => {
       clearInterval(intervalRef.current);
       setFinish(true);
     }
-
   },[typedText]);
 
   useEffect(() => {
@@ -62,6 +65,7 @@ export const useTypingFunctionallity = (onFinish:onFinishType) => {
   useEffect(() => {
     finished && onFinish({accuracy,cpm,time:timer,wrongChars});
   },[finished]);
-  
-  return {typedText,inputValue,onTypeLetter,notTypedText,cpm,wrongChars,timer,accuracy,onRestart}
+
+
+  return {typedText,inputValue,onTypeLetter,notTypedText,cpm,wrongChars,timer,accuracy,onRestart};
 }

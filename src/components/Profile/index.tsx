@@ -4,6 +4,8 @@ import { Avatar, Container, InformationContainer, JoinedDate, Logout, Name, Name
 import {LogoutOutlined} from "@ant-design/icons";
 import Cookies from "js-cookie";
 import {useNavigate} from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 type Props = {
     profile?:UserT,
     loading:boolean,
@@ -26,12 +28,15 @@ export const ProfileComponent:React.FC<Props> = ({profile,loading,err}) => {
             accuracy:65
         }
     }
+    useEffect(() => {
+        
+    }, [])
+    
     const onLogout = () => {
         Cookies.remove('token');
         logout();
         navigate('/');
     }
-
 
     return <Container>
         <Avatar src={user?.avatarUrl}/>

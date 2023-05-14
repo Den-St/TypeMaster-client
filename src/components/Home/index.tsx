@@ -1,3 +1,4 @@
+import { Spin } from "antd";
 import { useTypingFunctionallity } from "../../hooks/typingFunctionallity";
 import { RecordT } from "../../types/recordT";
 import { BestStat, Container, Input, MainContainer, NotTypedText, RestartButton, Stat, StatItemContainer, StatsContainer, TextContainer, TypedText } from "./styles";
@@ -11,14 +12,13 @@ type Props = {
 export const HomeComponent:React.FC<Props> = ({onFinish,notificationComponent,bestStats}) => {
     const {typedText,inputValue,onTypeLetter,notTypedText,
            cpm,wrongChars,timer,accuracy,onRestart} = useTypingFunctionallity(onFinish);
-
   return <Container>
     {notificationComponent}
     <MainContainer>
         <TextContainer>
             <TypedText dangerouslySetInnerHTML={{__html:typedText}}/>
             <Input value={''} placeholder={inputValue} onChange={onTypeLetter}/>
-            <NotTypedText dangerouslySetInnerHTML={{__html:notTypedText}}/>
+            <NotTypedText dangerouslySetInnerHTML={{__html:notTypedText}}/> 
         </TextContainer>
         <StatsContainer>
             <StatItemContainer><Stat>CPM: {cpm}</Stat><BestStat>{bestStats?.cpm || 300}</BestStat></StatItemContainer>
