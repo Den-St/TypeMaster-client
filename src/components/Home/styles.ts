@@ -8,6 +8,7 @@ export const Container = styled.section`
     gap:15px;
     width: 100%;
     justify-content: center;
+    padding-top: 50px;
 `;
 
 export const MainContainer = styled.div`
@@ -16,6 +17,10 @@ export const MainContainer = styled.div`
     padding: 10px;
     border-radius: 10px;
     gap:40px;
+    ${Media.down.m}{
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
 `;
 
 export const TextContainer = styled.div`
@@ -24,8 +29,8 @@ export const TextContainer = styled.div`
     font-size: 30px;
 
     ${Media.down.m}{
-        width: 90%;
-        font-size: 12px;
+        width: 100%;
+        font-size: 28px;
     }
 `;
 
@@ -53,14 +58,20 @@ export const StatsContainer = styled.div`
     gap: 20px;
     font-size: 30px;
     ${Media.down.m}{
-        font-size: 14px;
-        width: 130px;
+        font-size: 20px;
+        gap: 5px;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
     width: 330px;
 `;
 export const StatItemContainer = styled.div`
     display: flex;
     gap: 15px;
+    ${Media.down.m}{
+        gap:5px;
+        width: 48%;
+    }
     align-items: center;
 `;
 
@@ -77,7 +88,8 @@ export const RestartButton = styled.button`
     height: 35px;
     font-size: 25px;
     ${Media.down.m}{
-        font-size: 14px;
+        width: 100px;
+        font-size: 17px;
     }
     color:white;
     background-color: #2fa5f8;

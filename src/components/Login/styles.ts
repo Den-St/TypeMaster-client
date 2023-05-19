@@ -14,8 +14,6 @@ export const Main = styled.section`
     gap: 20px;
 `;
 
-
-
 export const RightForm = styled.article`
     height: 100%;
     padding-top: 30px;

@@ -26,6 +26,7 @@ export const Wrapper = styled.header`
     background-color: #2fa5f8;
     border-radius: 20px;
     ${Media.down.m}{
+        font-size: 16px;
         border-radius: 0;
     }
 `;
