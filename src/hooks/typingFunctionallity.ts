@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import { generateRandomText } from "../helpers/generateRandomText";
 
 type onFinishType = (record:{cpm:number,wrongChars:number,time:number,accuracy:number}) => void;
-type notifcationComponentType = React.ReactElement<any, string | React.JSXElementConstructor<any>>;
 
 export const useTypingFunctionallity = (onFinish:onFinishType) => {
   const [initialText,setInitialText] = useState(generateRandomText());
