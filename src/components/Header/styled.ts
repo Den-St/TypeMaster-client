@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Media } from "../../assets/breakpoints";
 
 export const Container = styled.div`
     width: 100%;
@@ -7,11 +8,14 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 120px;
+    ${Media.down.m}{
+        height: unset;
+    }
     font-size: 20px;
 `;
 
 export const Wrapper = styled.header`
-    width: 80%;
+    width: 100%;
     height: 80px;
     padding: 0 20px;
     box-sizing: border-box;
@@ -21,6 +25,9 @@ export const Wrapper = styled.header`
     align-items: center;
     background-color: #2fa5f8;
     border-radius: 20px;
+    ${Media.down.m}{
+        border-radius: 0;
+    }
 `;
 
 export const ProfileContainer = styled(Link)`

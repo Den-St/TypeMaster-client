@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Media } from "../../assets/breakpoints";
 
 export const Container = styled.section`
     display: flex;
@@ -20,22 +21,24 @@ export const MainContainer = styled.div`
 export const TextContainer = styled.div`
     width: 400px;
     height: 270px;
+    font-size: 30px;
+
+    ${Media.down.m}{
+        width: 90%;
+        font-size: 12px;
+    }
 `;
 
 export const TypedText = styled.span`
     color:lightblue;
-    font-size: 30px;
     word-break: break-all;
 `;
 
 export const NotTypedText = styled.span`
-    font-size: 30px;
     word-break: break-all;
-
 `;
 
 export const Input = styled.input`
-    font-size: 30px;
     width: 25px;
     background-color: rgb(15,207,15);
     padding: 0;
@@ -48,6 +51,11 @@ export const StatsContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    font-size: 30px;
+    ${Media.down.m}{
+        font-size: 14px;
+        width: 130px;
+    }
     width: 330px;
 `;
 export const StatItemContainer = styled.div`
@@ -57,11 +65,9 @@ export const StatItemContainer = styled.div`
 `;
 
 export const Stat = styled.p`
-    font-size: 30px;
     margin: 0;
 `;
 export const BestStat = styled.p`
-    font-size: 30px;
     margin: 0;
     color:green;
 `;
@@ -70,6 +76,9 @@ export const RestartButton = styled.button`
     width: 70%;
     height: 35px;
     font-size: 25px;
+    ${Media.down.m}{
+        font-size: 14px;
+    }
     color:white;
     background-color: #2fa5f8;
     border-radius: 5px;
