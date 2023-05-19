@@ -1,5 +1,7 @@
 import { RatingComponent } from "../../components/Rating"
+import { useRating } from "../../hooks/rating";
 
 export const Rating = () => {
-    return <RatingComponent/>
+    const {users, loading} = useRating();
+    return <RatingComponent users={users} loading={loading}/>
 }

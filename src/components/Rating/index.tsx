@@ -2,8 +2,14 @@ import { Title } from "../Login/styles"
 import { Container} from "./styles"
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import { UserT } from "../../types/userT";
 
-export const RatingComponent = () => {
+type Props = {
+  users:UserT[] | null,
+  loading:boolean
+}
+
+export const RatingComponent:React.FC<Props> = ({loading, users}) => {
     
 
 interface DataType {
@@ -14,7 +20,7 @@ interface DataType {
   time: number;
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: ColumnsType<UserT> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -63,6 +69,6 @@ const data: DataType[] = [
 ];
     return <Container>
         <Title>Rating</Title>
-        <Table pagination={false} columns={columns} dataSource={data} />
+        <Table pagination={false} columns={columns} dataSource={users || []} />
     </Container>
 }
