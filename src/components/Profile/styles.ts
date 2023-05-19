@@ -1,14 +1,24 @@
 import styled from 'styled-components';
+import { Media } from '../../assets/breakpoints';
 
 export const Container = styled.section`
     width: 100%;
     display: flex;
     gap: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    ${Media.down.m}{
+        gap: 10px;
+    }
 `;
 
 export const Avatar = styled.img`
     width: 150px;
     height: 150px;
+    ${Media.down.m}{
+        width: 50px;
+        height: 50px;
+    }
 `;
 
 export const InformationContainer = styled.section`
@@ -24,6 +34,9 @@ export const NameContainer = styled.div`
 
 export const Logout = styled.button`
     font-size: 35px;
+    ${Media.down.m}{
+        font-size: 25px;
+    }
     border: none;
     cursor: pointer;
     border-radius: 100%;
@@ -52,6 +65,10 @@ export const Stats = styled.section`
     flex-direction: row;
     justify-content: space-between;
     width: 400px;
+    ${Media.down.m}{
+        width: unset;
+        gap:10px;
+    }
 `;
 
 export const StatContainer = styled.section`
